@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "gateway"
+    _PROJECT_NAME: "mileage"
 
 phases:
   install:
@@ -52,8 +52,7 @@ phases:
                 targetPort: 8080
             selector:
               app: $_PROJECT_NAME
-            type:
-              LoadBalancer
+
           EOF
       - |
           cat  <<EOF | kubectl apply -f -
