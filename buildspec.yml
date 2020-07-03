@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "mileage"
+    _PROJECT_NAME: "t3mileage"
 
 phases:
   install:
