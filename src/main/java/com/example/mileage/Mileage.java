@@ -23,16 +23,13 @@ public class Mileage {
 	@Id
     @GeneratedValue
     Long id;
-	Long payId;
     Long purchaseId;
     int mileage;
     
     @PostPersist @PostUpdate
     public void onrequested(){
     	MileageStored mileageStored = new MileageStored();
-//    	mileageStored.setOrderId(this.getOrderId());
     	mileageStored.setPurchaseId(this.getPurchaseId());
-    	mileageStored.setPayId(this.getPayId());
     	mileageStored.setMileage(this.getMileage());
     	
         ObjectMapper objectMapper = new ObjectMapper();
@@ -68,15 +65,6 @@ public class Mileage {
     public void setPurchaseId(Long purchaseId) {
         this.purchaseId = purchaseId;
     }
-    
-
-	public Long getPayId() {
-		return payId;
-	}
-
-	public void setPayId(Long payId) {
-		this.payId = payId;
-	}
 
 	public int getMileage() {
 		return mileage;
