@@ -4,7 +4,6 @@ public class PaymentApproved {
 
 	String eventType;
     Long purchaseId;
-    Long payId;
     int mileage;
     
     public PaymentApproved(){
@@ -25,14 +24,6 @@ public class PaymentApproved {
 
     public void setPurchaseId(Long purchaseId) {
         this.purchaseId = purchaseId;
-    }
-
-    public Long getPayId() {
-        return payId;
-    }
-
-    public void setPayId(Long payId) {
-        this.payId = payId;
     }
 
 	public int getMileage() {
