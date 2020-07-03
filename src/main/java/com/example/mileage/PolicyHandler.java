@@ -24,12 +24,12 @@ public class PolicyHandler {
             Optional<Mileage> mopt = mileageRepository.findByPurchaseId(paymentApproved.getPurchaseId());
             if(mopt.isPresent()) {
             	Mileage mileage =  mopt.get();
+            	mileage.setPurchaseId(paymentApproved.getPurchaseId());
             	mileage.setMileage(mileage.getMileage()+paymentApproved.getMileage());
             	mileageRepository.save(mileage);
             }else {
             	Mileage mileage =  new Mileage();
             	mileage.setPurchaseId(paymentApproved.getPurchaseId());
-            	mileage.setPayId(paymentApproved.getPayId());
             	mileage.setMileage(1000);
             	mileageRepository.save(mileage);
             }
@@ -47,6 +47,7 @@ public class PolicyHandler {
             mileageRepository.findByPurchaseId(paymentCancelled.getPurchaseId())
             .ifPresent(
                     mileage -> {
+                    	mileage.setPurchaseId(paymentCancelled.getPurchaseId());
                     	mileage.setMileage(mileage.getMileage()-paymentCancelled.getMileage());
                     	mileageRepository.save(mileage);
                     }
@@ -55,4 +56,5 @@ public class PolicyHandler {
         }
     }
 }
+
 
